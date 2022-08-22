@@ -4,15 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import BrowseDesignsPage from './components/BrowseDesignsPage/BrowseDesignsPage';
+import BoxShadowGeneratorPage from './components/BoxShadowGeneratorPage/BoxShadowGeneratorPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/:id" element={<App />} />
-        <Route path="/create" element={<App />} />
+        <Route path="/" element={<App />}>
+          <Route path="/:id" element={<BoxShadowGeneratorPage />} />
+          <Route path="/create" element={<BrowseDesignsPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
