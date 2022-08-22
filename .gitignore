@@ -1,0 +1,24 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/box-shadow-generator/node_modules
+/api/node_modules
+/box-shadow-generator/.pnp
+/box-shadow-generator/.pnp.js
+
+# testing
+/box-shadow-generator/coverage
+
+# production
+/box-shadow-generator/build
+
+# misc
+/box-shadow-generator/.DS_Store
+/box-shadow-generator/.env.local
+/box-shadow-generator/.env.development.local
+/box-shadow-generator/.env.test.local
+/box-shadow-generator/.env.production.local
+
+/box-shadow-generator/npm-debug.log*
+/box-shadow-generator/yarn-debug.log*
+/box-shadow-generator/yarn-error.log*
