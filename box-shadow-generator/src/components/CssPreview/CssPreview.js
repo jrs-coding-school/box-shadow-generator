@@ -1,11 +1,12 @@
 import React from 'react'
 import './CssPreview.css'
 
-export default function CssPreview({ x, y, blur, grow, inset, color }) {
+export default function CssPreview({ x, y, blur, grow, inset, color, opacity }) {
 
     const cssText = `.element {
-        box-shadow: ${x}px ${y}px ${blur}px ${grow}px${inset ? ' inset' : ''} #${color};
+        box-shadow: ${x}px ${y}px ${blur}px ${grow}px${inset ? ' inset' : ''} ${color + opacity};
         }`
+
     function handleCopyClicked() {
         navigator.clipboard.writeText(cssText);
     }

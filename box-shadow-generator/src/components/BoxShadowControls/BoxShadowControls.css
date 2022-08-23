@@ -1,0 +1,7 @@
+.controls-root label {
+    display: block;
+}
+
+.controls-root input[type=checkbox]~label {
+    display: inline-block;
+}

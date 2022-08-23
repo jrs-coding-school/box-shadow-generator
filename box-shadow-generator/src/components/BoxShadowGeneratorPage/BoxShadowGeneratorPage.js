@@ -8,15 +8,14 @@ export default function BoxShadowGeneratorPage() {
 
     const [shadow, setShadow] = useState({
         id: '',
-        x: 5,
+        x: 2,
         y: 5,
-        blur: 5,
-        grow: 5,
+        blur: 15,
+        grow: 0,
         inset: false,
-        color: '000000cc'
+        color: '#000000',
+        opacity: 0.5
     })
-
-
 
     return (
 
@@ -28,7 +27,10 @@ export default function BoxShadowGeneratorPage() {
                 {...shadow}
             />
             <div className="bottom">
-                <BoxShadowControls />
+                <BoxShadowControls
+                    shadow={shadow}
+                    setShadow={setShadow}
+                />
                 <CssPreview
                     {...shadow}
                 />

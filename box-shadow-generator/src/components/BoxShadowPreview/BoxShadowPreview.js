@@ -1,7 +1,7 @@
 import React from 'react'
 import './BoxShadowPreview.css'
 
-export default function BoxShadowPreview({ x, y, blur, grow, inset, color }) {
+export default function BoxShadowPreview({ x, y, blur, grow, inset, color, opacity }) {
 
     let style = {
         boxShadow:
@@ -11,7 +11,7 @@ export default function BoxShadowPreview({ x, y, blur, grow, inset, color }) {
             ${blur}px 
             ${grow}px 
             ${inset ? 'inset' : ''} 
-            #${color}
+            ${color + opacity}
         `
     }
 
