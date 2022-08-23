@@ -67,9 +67,9 @@ export default function BoxShadowControls({ shadow, setShadow }) {
                 <input
                     type='range'
                     name='opacity'
-                    value={shadow.opacity}
+                    value={parseInt(shadow.opacity, 16)}
                     onChange={(e) => {
-                        let hexStr = e.target.value.toString(16);
+                        let hexStr = Number(e.target.value).toString(16);
                         console.log(hexStr)
                         setShadow({
                             ...shadow,
