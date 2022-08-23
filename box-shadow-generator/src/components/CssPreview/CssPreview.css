@@ -1,0 +1,14 @@
+.css-preview-root {
+    background-color: #222;
+    color: azure;
+    padding: 1.5rem;
+}
+
+.css-preview-root code {
+    display: block;
+    text-align: left;
+}
+
+.css-preview-root code.tab-1 {
+    padding-left: 2rem;
+}

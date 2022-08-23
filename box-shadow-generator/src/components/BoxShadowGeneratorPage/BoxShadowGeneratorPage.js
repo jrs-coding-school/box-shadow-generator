@@ -29,7 +29,9 @@ export default function BoxShadowGeneratorPage() {
             />
             <div className="bottom">
                 <BoxShadowControls />
-                <CssPreview />
+                <CssPreview
+                    {...shadow}
+                />
             </div>
         </div>
     )
