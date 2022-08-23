@@ -4,7 +4,7 @@ import './CssPreview.css'
 export default function CssPreview({ x, y, blur, grow, inset, color }) {
 
     const cssText = `.element {
-        box-shadow: ${x}px ${y}px ${blur}px ${grow}px {inset ? 'inset' : ''} #${color};
+        box-shadow: ${x}px ${y}px ${blur}px ${grow}px${inset ? ' inset' : ''} #${color};
         }`
     function handleCopyClicked() {
         navigator.clipboard.writeText(cssText);
