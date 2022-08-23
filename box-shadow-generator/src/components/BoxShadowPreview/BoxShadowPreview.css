@@ -1,0 +1,9 @@
+.preview-root {
+    padding: 1rem;
+}
+
+.preview-root .preview-actual {
+    max-width: 500px;
+    margin: auto;
+    border: solid black 1px;
+}

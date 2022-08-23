@@ -16,13 +16,16 @@ export default function BoxShadowGeneratorPage() {
         color: '000000cc'
     })
 
+
+
     return (
+
         <div className="box-shadow-generator-root">
             <div className="top">
                 foo bar
             </div>
             <BoxShadowPreview
-                shadow={shadow}
+                {...shadow}
             />
             <div className="bottom">
                 <BoxShadowControls />
