@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./app/index');
-require('./app/routes/heroes.routes.js')(app);
+require('./app/routes/designs.routes.js')(app);
 
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
