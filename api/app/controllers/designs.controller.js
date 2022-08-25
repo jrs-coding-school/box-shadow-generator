@@ -4,12 +4,12 @@ const { v4: uuid } = require('uuid');
 // get all 
 exports.getAllDesigns = (req, res) => {
 
-    let script  = `
+    let script = `
         SELECT  *
         FROM designs
     `
 
-    db.query(script, (error, results)=>{
+    db.query(script, (error, results) => {
 
         if (error) {
             res.status(500).send({
@@ -45,10 +45,51 @@ exports.deleteDesignById = (req, res) => {
 
 // create new one
 exports.createNewDesign = (req, res) => {
-    res.send("Function not implemented yet :(")
+    // looking for x, y, blur, grow, inset, opacity, color from client
+    var { x, y, blur, grow, inset, opacity, color } = req.body;
+    console.log(typeof x)
+    if ((typeof x != 'number')
+        || (typeof y != 'number')
+        || (typeof grow != 'number')
+        || (typeof inset != 'boolean')
+        || (typeof blur != 'number' || blur < 0)
+        || (typeof opacity != 'number' || opacity < 0)
+        || (typeof color != 'string' || color.length != 7)) {
+        res.status(400).send({
+            message: "You are missing required data",
+            body: req.body
+        })
+        return;
+    }
+    // generate an id 
+    const id = uuid();
+
+    let script = `
+            INSERT INTO designs
+                (id, x, y, blur, grow, inset, opacity, color)
+            VALUES
+                (?, ?, ?, ?, ?, ?, ?, ?)
+    `
+
+    let pValues = [id, x, y, blur, grow, inset, opacity, color]
+
+    db.query(script, pValues, (err, results) => {
+        if (err) {
+            res.status(500).send({
+                message: 'There was a problem creating your design',
+                err
+            })
+        } else {
+            res.send({
+                message: 'Your design was saved in the database',
+                id
+            })
+        }
+    })
 }
 
 // update <- not really
 exports.updateDesign = (req, res) => {
     res.send("Function not implemented yet :(")
 }
+
