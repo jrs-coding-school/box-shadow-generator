@@ -7,7 +7,7 @@ CREATE TABLE `box_shadows`.`designs` (
   `x` INT NOT NULL,
   `y` INT NOT NULL,
   `blur` INT NOT NULL DEFAULT 0,
-  'opacity' INT NOT NULL DEFAULT 100,
+  `opacity` INT NOT NULL DEFAULT 100,
   `grow` INT NOT NULL DEFAULT 0,
   `inset` BOOLEAN NOT NULL DEFAULT false,
   `color` VARCHAR(7) NOT NULL,
