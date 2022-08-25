@@ -3,7 +3,27 @@ const { v4: uuid } = require('uuid');
 
 // get all 
 exports.getAllDesigns = (req, res) => {
-    res.send("Function not implemented yet :(")
+
+    let script  = `
+        SELECT  *
+        FROM designs
+    `
+
+    db.query(script, (error, results)=>{
+
+        if (error) {
+            res.status(500).send({
+                message: 'There was an error getting the designs',
+                error
+            })
+        } else if (results.length == 0) {
+            res.status(404).send({
+                message: 'No designs found'
+            })
+        } else {
+            res.send(results)
+        }
+    })
 }
 // get one by id
 exports.getDesignById = (req, res) => {

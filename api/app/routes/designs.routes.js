@@ -5,7 +5,7 @@ module.exports = (app) => {
     // get one by id
     // get designs that a user created
     // get designs that a user 'likes'
-    app.get("/api/designs/", designs.getAllDesigns)
+    app.get("/api/designs", designs.getAllDesigns)
     app.get("/api/designs/:id", designs.getDesignById)
     app.get("/api/designs/user/:id", designs.getDesignsByUser)
     app.get("/api/designs/user/:id/likes", designs.getDesignsUserLikes)
