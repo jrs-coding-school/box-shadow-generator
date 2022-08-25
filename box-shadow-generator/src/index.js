@@ -14,8 +14,8 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="" element={<BrowseDesignsPage />} />
-          <Route path="/:id" element={<BoxShadowGeneratorPage />} />
           <Route path="/create" element={<BoxShadowGeneratorPage />} />
+          <Route path="/:id" element={<BoxShadowGeneratorPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
