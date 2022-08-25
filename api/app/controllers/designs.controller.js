@@ -25,10 +25,38 @@ exports.getAllDesigns = (req, res) => {
         }
     })
 }
+
 // get one by id
 exports.getDesignById = (req, res) => {
-    res.send("Function not implemented yet :(")
+
+    let { id } = req.params;
+
+    const query = `
+        SELECT * FROM designs
+        WHERE id = ?;
+    `;
+
+    let pvalues = [id];
+
+    db.query(query, pvalues, (err, results) => {
+        if (err) {
+            res.status(500).send({
+                error: err,
+                message: "There was an error getting your design."
+            });
+            return;
+        } else if (results.length == 0) {
+            res.status(404).send({
+                message: "Could not locate a design with this id."
+            })
+            return;
+        } else {
+            res.send(results[0]);
+            return;
+        }
+    });
 }
+
 // get designs that a user created
 exports.getDesignsByUser = (req, res) => {
     res.send("Function not implemented yet :(")
