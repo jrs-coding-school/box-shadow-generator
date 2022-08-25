@@ -68,7 +68,33 @@ exports.getDesignsUserLikes = (req, res) => {
 
 // delete one by id
 exports.deleteDesignById = (req, res) => {
-    res.send("Function not implemented yet :(")
+
+    const { id } = req.params;
+
+    const script = `
+        DELETE FROM designs
+            WHERE id = ?;
+    `
+
+    const pValues = [id];
+
+    db.query(script, pValues, (err, results) => {
+        if (err) {
+            res.status(500).send({
+                message: 'There was a problem deleting your design',
+                err
+            })
+        } else if (results.affectedRows == 0) {
+            res.status(404).send({
+                message: 'No designs found.',
+                id
+            });
+        } else {
+            res.send({
+                message: "Design deleted successfully"
+            })
+        }
+    });
 }
 
 // create new one
